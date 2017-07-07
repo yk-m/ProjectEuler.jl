@@ -1,5 +1,5 @@
 using Base.Test
-using Problem001
+using ProjectEuler
 
 print("Test Problem001: ")
 print("-- main")

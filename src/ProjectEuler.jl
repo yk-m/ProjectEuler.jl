@@ -1,2 +1,5 @@
+module ProjectEuler
 
-include("Problem001.jl")
+    include("Problem001.jl")
+
+end
