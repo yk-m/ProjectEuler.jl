@@ -6,15 +6,11 @@
 module Problem001
 
     function solve()
-        sum_of_multiple(3, 999) + sum_of_multiple(5, 999) - sum_of_multiple(15, 999)
+        sum(get_multiple_iterator(3, 999)) + sum(get_multiple_iterator(5, 999)) - sum(get_multiple_iterator(15, 999))
     end
 
-    function sum_of_multiple(n, max)
-        sum = 0
-        for x in n:n:max
-            sum += x
-        end
-        sum
+    function get_multiple_iterator(n, max)
+        [x for x in n:n:max]
     end
 
 end
