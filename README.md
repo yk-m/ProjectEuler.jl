@@ -1,5 +1,5 @@
 # Project-Euler
-[![Build Status](https://travis-ci.org/yk-m/Project-Euler.svg?branch=master)](https://travis-ci.org/yk-m/Project-Euler)
+[![Build Status](https://travis-ci.org/yk-m/ProjectEuler.jl.svg?branch=master)](https://travis-ci.org/yk-m/ProjectEuler.jl)
 
 [Julia](https://julialang.org)でProject Eulerしてみたい
 
