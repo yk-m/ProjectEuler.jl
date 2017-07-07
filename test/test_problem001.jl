@@ -1,10 +1,10 @@
 using Base.Test
 using ProjectEuler
 
-print("Test Problem001: ")
-print("-- main")
+println("Test Problem001:")
+println("-- main")
 @test Problem001.solve() == 233168
 
-print("-- sum_of_multiple")
-@test Problem001.sum_of_multiple(3, 9) == 18
-@test Problem001.sum_of_multiple(5, 9) == 5
+println("-- sum_of_multiple")
+@test sum(Problem001.get_multiple_iterator(3, 9)) == 18
+@test sum(Problem001.get_multiple_iterator(5, 9)) == 5
