@@ -7,26 +7,18 @@
 module Problem002
 
     function solve()
-        fibs = get_fibonacci_list(4000000)
-        sum([fibs[x] for x in 2:3:length(fibs)])
+        F = fibonacci(4000000)
+        sum([F[x] for x in 2:3:length(F)])
     end
 
-    function get_fibonacci_list(max)
-        fibs = []
-        for x in Task(fibonacci)
-            if x > max
-                return fibs
-            end
-            push!(fibs, x)
-        end
-    end
-
-    function fibonacci()
+    function fibonacci(max)
+        F = []
         a, b = 1, 2
-        while true
-            produce(a)
+        while a ≤ max
+            push!(F, a)
             a, b = b, a + b
         end
+        F
     end
 
 end
