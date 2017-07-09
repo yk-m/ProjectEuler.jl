@@ -7,14 +7,13 @@
 module Problem002
 
     function solve()
-        F = fibonacci(4000000)
-        sum([F[x] for x in 2:3:length(F)])
+        sum(filter(iseven, fibonacci(4000000)))
     end
 
-    function fibonacci(max)
+    function fibonacci(n)
         F = []
         a, b = 1, 2
-        while a ≤ max
+        while a ≤ n
             push!(F, a)
             a, b = b, a + b
         end

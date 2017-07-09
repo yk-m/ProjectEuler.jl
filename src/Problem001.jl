@@ -6,7 +6,7 @@
 module Problem001
 
     function solve()
-        sum([x for x in 3:3:999]) + sum([x for x in 5:5:999]) - sum([x for x in 15:15:999])
+        sum(filter(x -> x % 3 == 0 || x % 5 == 0, 1:999))
     end
 
 end
