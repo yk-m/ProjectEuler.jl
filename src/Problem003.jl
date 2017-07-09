@@ -5,7 +5,6 @@
 600851475143 の素因数のうち最大のものを求めよ.
 """
 module Problem003
-    using Primes
 
     function solve()
         maximum(primefactors(600851475143))
