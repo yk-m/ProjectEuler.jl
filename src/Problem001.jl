@@ -6,7 +6,7 @@
 module Problem001
 
     function solve()
-        sum(filter(x -> x % 3 == 0 || x % 5 == 0, 1:999))
+        sum(x for x in 1:999 if (x % 3 == 0 || x % 5 == 0))
     end
 
 end
