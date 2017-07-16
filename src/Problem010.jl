@@ -7,16 +7,19 @@
 module Problem010
 
     function solve()
-        sum(x for x in 2:2000000 if isprime(x))
+        sum(primes(2000000))
     end
 
-    function isprime(n)
-        for k in 2:sqrt(n)
-            if n % k == 0
-                return false
+    function primes(n)
+        P = trues(n)
+        P[1] = false
+        for i in 1:isqrt(n)
+            P[i] || continue
+            for j in i+i:i:n
+                P[j] = false
             end
         end
-        return true
+        find(P)
     end
 
 end
