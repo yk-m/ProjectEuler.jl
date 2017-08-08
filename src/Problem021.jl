@@ -11,33 +11,29 @@ d(n) を n の真の約数の和と定義する. (真の約数とは n 以外の
 module Problem021
 
     function solve()
-        sum = 0
-        for a in 1:9999, b in a+1:9999
-            if !is_amicablenumbers(a, b)
+        sum([sum(pair) for pair in find_amicable_pairs(9999)])
+    end
+
+    function find_amicable_pairs(limit)
+        D = [d(x) for x in 1:limit]
+        pairs = []
+
+        for a in 1:limit, b in 1:limit
+            if a ≥ b
                 continue
             end
-            @show a, b
-            sum += a + b
+            if D[a] != b || D[b] != a
+                continue
+            end
+            push!(pairs, (a, b))
         end
-        return sum
+        return pairs
     end
 
-    function is_amicablenumbers(a, b)
-        if a == b
-            return false
-        end
-        if d(a) != b
-            return false
-        end
-        if d(b) != a
-            return false
-        end
-        return true
-    end
-
-    d(n) = sum(proper_divisors(n))
+    d(n) = try sum(proper_divisors(n)) catch; 0 end
 
     function proper_divisors(n)
+        n ≥ 1 || return []
         x, max = 1, n
         divisors = [x]
         while x + 1 < max
