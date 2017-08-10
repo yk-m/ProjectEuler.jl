@@ -42,7 +42,10 @@ module Problem021
                 continue
             end
             max = n ÷ x
-            push!(divisors, x, max)
+            push!(divisors, x)
+            if max != x
+                push!(divisors, max)
+            end
         end
         return divisors
     end
