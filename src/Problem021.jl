@@ -33,7 +33,9 @@ module Problem021
     d(n) = try sum(proper_divisors(n)) catch; 0 end
 
     function proper_divisors(n)
-        n ≥ 1 || return []
+        if n ≤ 1
+            return []
+        end
         x, max = 1, n
         divisors = [x]
         while x + 1 < max
