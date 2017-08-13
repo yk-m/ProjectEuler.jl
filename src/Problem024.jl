@@ -8,16 +8,18 @@
 module Problem024
 
     function solve()
-        P = permutations(collect(0:9))
-        return reduce((x,y) -> "$(x)$(y)", string.(P[1000000]))
-    end
-
-    function permutations(L)
-        if L == []
-            return [[]]
+        n = 1000000 - 1
+        nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        indices = map(9:-1:0) do x
+            f = factorial(x)
+            index = n ÷ f + 1
+            n %= f
+            return index
         end
-        return [append!([l], child) for (i, l) in enumerate(L)
-                                    for child in permutations(append!(L[1:i-1], L[i+1:end]))]
+        digits = map(indices) do index
+            splice!(nums, index)
+        end
+        return join(digits)
     end
 
 end
