@@ -8,7 +8,8 @@
 module Problem022
 
     function solve()
-        names = formatcsv(read("appendices/names.txt"))[1]
+        respath = joinpath(@__DIR__, "..", "res")
+        names = vec(readcsv(joinpath(respath, "names.txt"), String))
         sort!(names)
         sum([namescore(name) * index for (index, name) = enumerate(names)])
     end
@@ -21,7 +22,8 @@ module Problem022
 
     function read(filename)
         lines = []
-        open(filename) do f
+        @show @__DIR__
+        open("$(@__DIR__)/$(filename)") do f
             lines = readlines(f)
         end
         return lines
