@@ -3,4 +3,4 @@ using ProjectEuler
 
 println("Test Problem0020: ")
 println("-- main")
-@test Problem020.solve() == 648
+@time @test Problem020.solve() == 648
