@@ -9,7 +9,7 @@ module Problem022
 
     function solve()
         respath = joinpath(@__DIR__, "..", "res")
-        names = vec(readcsv(joinpath(respath, "names.txt"), String))
+        names = format(readlines(joinpath(respath, "names.txt")))
         sort!(names)
         sum([namescore(name) * index for (index, name) = enumerate(names)])
     end
@@ -20,17 +20,8 @@ module Problem022
         Int(char) - Int('A') + 1
     end
 
-    function read(filename)
-        lines = []
-        @show @__DIR__
-        open("$(@__DIR__)/$(filename)") do f
-            lines = readlines(f)
-        end
-        return lines
-    end
-
-    function formatcsv(lines)
-        return [split(replace(line, "\"", ""), ",") for line in lines]
+    function format(lines)
+        return [split(replace(line, "\"", ""), ",") for line in lines][1]
     end
 
 end
