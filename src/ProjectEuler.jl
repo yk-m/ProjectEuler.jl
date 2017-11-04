@@ -4,9 +4,9 @@ module ProjectEuler
     export Problem011, Problem012, Problem013, Problem014, Problem015
     export Problem016, Problem017, Problem018, Problem019, Problem020
     export Problem021, Problem022, Problem023, Problem024, Problem025
-    export Problem026
+    export Problem026, Problem027
 
-    for i in 1:26
+    for i in 1:27
         include("Problem$(@sprintf("%03d", i)).jl")
     end
 end
